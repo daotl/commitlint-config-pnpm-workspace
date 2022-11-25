@@ -1,7 +1,6 @@
 {
   "name": "commitlint-config-pnpm-workspace",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.2.0",
   "packageManager": "pnpm@7.17.0",
   "description": "Shareable commitlint config enforcing scopes from pnpm workspace packages",
   "author": "Nex Zhu <hitnexup@gmail.com>",

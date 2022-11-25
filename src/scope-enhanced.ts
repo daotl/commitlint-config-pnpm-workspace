@@ -2,16 +2,12 @@ import type { LoadOptions } from '@commitlint/types'
 
 import { getPackages as getPkgs } from './utils'
 
-export const getPackages = (ctx: LoadOptions = {}): Promise<string[]> =>
-  getPkgs(ctx).then((pkgs) =>
-    pkgs.map((p) =>
-      p.startsWith('@') && p.includes('/') ? p.split('/')[1]! : p,
-    ),
-  )
+export const getPackages = getPkgs
 
 export const rules = {
   'scope-empty': [2, 'never'],
+  'scope-enum': [0],
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  'scope-enum': (ctx: LoadOptions) =>
+  'scope-enum-enhanced': (ctx: LoadOptions) =>
     getPackages(ctx).then((pkgs) => [2, 'always', pkgs]),
 }

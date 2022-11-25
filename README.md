@@ -18,6 +18,9 @@ Add the following snippet in the `commitlint` config file of your project:
 }
 ```
 
+Since `commitlint`'s `scope-enum` rule does not support `/` in the scope names,
+scope names with `@scope/` prefix will be stripped.
+
 To add custom scopes, use `getPackages` functions:
 
 ```javascript
@@ -34,6 +37,17 @@ modules.exports = {
       'root',
     ],
   ],
+}
+```
+
+## Usage with `commitlint-plugin-scope-enhanced`
+
+To use the `scope-enum-enhanced` rule from [commitlint-plugin-scope-enhanced](https://github.com/daotl/commitlint-plugin-scope-enhanced) instead of the default `scope-enum` rule,
+extend from `pnpm-workspace/scope-enhanced` instead:
+
+```json
+{
+  "extends": ["pnpm-workspace/scope-enhanced"]
 }
 ```
 
