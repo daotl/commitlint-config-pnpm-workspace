@@ -1,6 +1,6 @@
 {
   "name": "commitlint-config-pnpm-workspace",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "packageManager": "pnpm@7.17.0",
   "description": "Shareable commitlint config enforcing scopes from pnpm workspace packages",
   "author": "Nex Zhu <hitnexup@gmail.com>",
@@ -17,6 +17,10 @@
     "TypeScript",
     "library"
   ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./scope-enhanced": "./dist/scope-enhanced.js"
+  },
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",

@@ -47,7 +47,8 @@ extend from `pnpm-workspace/scope-enhanced` instead:
 
 ```json
 {
-  "extends": ["pnpm-workspace/scope-enhanced"]
+  "extends": ["pnpm-workspace/scope-enhanced"],
+  "plugins": ["scope-enhanced"]
 }
 ```
 
