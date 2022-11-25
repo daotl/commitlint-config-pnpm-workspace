@@ -1,39 +1,42 @@
-# ts-lib-starter
+# commitlint-config-pnpm-workspace
 
-TypeScript Library Starter for DAOT projects
+Shareable `commitlint` config enforcing scopes from `pnpm` workspace packages
+
+## Installation
+
+```sh
+pnpm add -D commitlint-config-pnpm-workspace
+```
 
 ## Usage
 
-Modify [package.json]().
+Add the following snippet in the `commitlint` config file of your project:
 
-Commit changes with [Commitizen](https://commitizen.github.io/cz-cli/):
-```shell
-npx cz
+```json
+{
+  "extends": ["pnpm-workspace"]
+}
 ```
 
-Or still use `git commit` and follow [the Conventional Commits spec](https://www.conventionalcommits.org/en/v1.0.0/#summary), your commits will be linted before accepted.
+To add custom scopes, use `getPackages` functions:
 
-To run `Jest` test:
-```shell
-npm run test
+```javascript
+const { getPackages } = require('commitlint-config-pnpm-workspace')
+
+modules.exports = {
+  ...,
+  'scope-empty': [2, 'never'],
+  'scope-enum': async (context) => [
+    2,
+    'always',
+    [
+      ...(await getPackages(context)),
+      'root',
+    ],
+  ],
+}
 ```
 
-To lint with `ESLint`:
-```shell
-npm run lint
-```
+## License
 
-To build with `tsup`:
-```shell
-npm run build
-```
-
-To publish to npm:
-```shell
-npm run pub
-```
-
-To debug with `ts-node`:
-```shell
-ts-node -r tsconfig-paths/register src/index.ts
-```
+[MIT](LICENSE)

@@ -1,5 +1,5 @@
-import { hello } from './index'
+import { getPackages } from './index'
 
-test("hello('Nex') to equal 'Hello Nex!'", () => {
-  expect(hello('Nex')).toBe(`Hello Nex!`)
+test('getPackages', async () => {
+  expect(await getPackages()).toBe(['commitlint-config-pnpm-workspace'])
 })
